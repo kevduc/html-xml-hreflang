@@ -26,20 +26,17 @@ regex = re.compile('\s*<link(?:(?:\s+rel="(?P<rel>.*?)")|(?:\s+hreflang="(?P<hre
                    re.MULTILINE | re.IGNORECASE | re.DOTALL)
 links = [link.groupdict() for link in regex.finditer(text)]
 
-# Extract the default url (using the first url in the list as default if no default found)
+# Default url hreflang value
 defaultHreflang = "x-default"
-defaultLink = next(
-    (link for link in links if link["hreflang"] == defaultHreflang), links[0])
-links = [link for link in links if link["hreflang"] != defaultHreflang]
 
 # Generate XML output
 newline = "\n"
 output = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>{defaultLink["href"]}</loc>
-{newline.join(f'    <xhtml:link rel="{link["rel"]}" hreflang="{link["hreflang"]}" href="{link["href"]}"/>' for link in links)}
-  </url>
+{newline.join(f'''  <url>
+    <loc>{link["href"]}</loc>
+{newline.join(f'    <xhtml:link rel="{otherLink["rel"]}" hreflang="{otherLink["hreflang"]}" href="{otherLink["href"]}"/>' for otherLink in links if otherLink != link)}
+  </url>''' for link in links if link["hreflang"] != defaultHreflang)}
 </urlset>
 """
 
