@@ -1,6 +1,6 @@
-# html-xml-hreflang
+# HTML hreflang ➡ XML Sitemap converter
 
-Convert HTML hrefelang tags to a valid XML Sitemap.
+Convert HTML hreflang tags to a valid XML Sitemap.
 
 Follows the Google Guidelines: [Tell Google about localized versions of your page](https://developers.google.com/search/docs/advanced/crawling/localized-versions).
 
