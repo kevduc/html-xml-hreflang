@@ -4,9 +4,9 @@ import argparse
 # Parse arguments (input and output file names)
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", type=str,
-                    help="Input file (HTML link tags)")
+                    help="Input file (list of HTML link tags)")
 parser.add_argument("-o", "--output", type=str,
-                    help="Output file (XML Sitemap)")
+                    help="Output file (generated XML Sitemap)")
 args = parser.parse_args()
 
 # Default input and output file names
@@ -26,7 +26,7 @@ regex = re.compile('\s*<link(?:(?:\s+rel="(?P<rel>.*?)")|(?:\s+hreflang="(?P<hre
                    re.MULTILINE | re.IGNORECASE | re.DOTALL)
 links = [link.groupdict() for link in regex.finditer(text)]
 
-# Extract the default url
+# Extract the default url (using the first url in the list as default if no default found)
 defaultHreflang = "x-default"
 defaultLink = next(
     (link for link in links if link["hreflang"] == defaultHreflang), links[0])

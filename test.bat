@@ -1,0 +1,1 @@
+python main.py -i test-input.html -o test-output.xml
