@@ -22,7 +22,7 @@ inputFile = open(inputFileName, "r")
 text = inputFile.read()
 
 # Extract all the html <link> tags and the required attributes
-regex = re.compile('\s*<link(?:(?:\s+rel="(?P<rel>.*?)")|(?:\s+hreflang="(?P<hreflang>.*?)")|(?:\s+href="(?P<href>.*?)")|(?:\s+.*?))*\s*/>',
+regex = re.compile('\s*<link(?:(?:\s+rel="(?P<rel>.*?)")|(?:\s+hreflang="(?P<hreflang>.*?)")|(?:\s+href="(?P<href>.*?)")|(?:\s+.*?))*?\s*/>',
                    re.MULTILINE | re.IGNORECASE | re.DOTALL)
 links = [link.groupdict() for link in regex.finditer(text)]
 
