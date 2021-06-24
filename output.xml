@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://www.example.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en-gb" href="http://en-gb.example.com/page.html"/>
+    <xhtml:link rel="alternate" hreflang="en-us" href="http://en-us.example.com/page.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://en.example.com/page.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>
+  </url>
+</urlset>
