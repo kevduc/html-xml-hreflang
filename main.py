@@ -53,13 +53,13 @@ for i, inputFileName in enumerate(inputFileNames):
         f'    <xhtml:link rel="{link["rel"]}" hreflang="{link["hreflang"]}" href="{link["href"]}"/>' for link in links)
 
     output = f"""<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {newline.join(f'''  <url>
-      <loc>{link["href"]}</loc>
-  {alternates}
-    </url>''' for link in links if link["hreflang"] != defaultHreflang)}
-  </urlset>
-  """
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{newline.join(f'''  <url>
+    <loc>{link["href"]}</loc>
+{alternates}
+  </url>''' for link in links if link["hreflang"] != defaultHreflang)}
+</urlset>
+"""
 
     # Write output file
     outputFile = open(outputFileNames[i], "w")
