@@ -2,6 +2,7 @@ import re
 import argparse
 import os
 import glob
+import warnings
 
 # Parse arguments (input and output file names)
 parser = argparse.ArgumentParser()
@@ -21,7 +22,7 @@ outputFileName = args.output if args.output else defaultOutputFileName
 
 # If inputFileName is a directory, convert all the html files inside
 if os.path.isdir(inputFileName):
-    print("Input is a directory, ignoring output file name.")
+    warnings.warn("Input is a directory, ignoring output file name.")
     inputFileNames = glob.glob(f'{inputFileName}/*.html')
     extensionRegex = re.compile('\.html$', re.IGNORECASE)
     outputFileNames = [extensionRegex.sub(
