@@ -31,11 +31,15 @@ defaultHreflang = "x-default"
 
 # Generate XML output
 newline = "\n"
+
+alternates = newline.join(
+    f'    <xhtml:link rel="{link["rel"]}" hreflang="{link["hreflang"]}" href="{link["href"]}"/>' for link in links)
+
 output = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {newline.join(f'''  <url>
     <loc>{link["href"]}</loc>
-{newline.join(f'    <xhtml:link rel="{otherLink["rel"]}" hreflang="{otherLink["hreflang"]}" href="{otherLink["href"]}"/>' for otherLink in links if otherLink != link)}
+{alternates}
   </url>''' for link in links if link["hreflang"] != defaultHreflang)}
 </urlset>
 """
