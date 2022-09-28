@@ -45,7 +45,7 @@ for i, inputFileName in enumerate(inputFileNames):
     links = [link.groupdict() for link in regex.finditer(text)]
 
     # Default url hreflang value
-    defaultHreflang = "x-default"
+    DEFAULT_HREFLANG = "x-default"
 
     # Generate XML output
     newline = "\n"
@@ -58,7 +58,7 @@ for i, inputFileName in enumerate(inputFileNames):
 {newline.join(f'''  <url>
     <loc>{link["href"]}</loc>
 {alternates}
-  </url>''' for link in links if link["hreflang"] != defaultHreflang)}
+  </url>''' for link in links if link["hreflang"] != DEFAULT_HREFLANG)}
 </urlset>
 """
 
