@@ -8,7 +8,7 @@ Follows the Google Guidelines: [Tell Google about localized versions of your pag
 
 Run `main.py`, optionally specifying an input and/or output file, for example:
 
-\> `python main.py -i test-input.html -o test-output.xml`
+\> `python main.py -i test/test-input.html -o test/test-output.xml`
 
 > Defaults to `input.html` for the input file and `output.xml` for the output file if not specified
 
@@ -31,6 +31,7 @@ Run `main.py`, optionally specifying an input and/or output file, for example:
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://en-gb.example.com/page.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-gb" href="http://en-gb.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="en-us" href="http://en-us.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://en.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>
@@ -39,6 +40,7 @@ Run `main.py`, optionally specifying an input and/or output file, for example:
   <url>
     <loc>http://en-us.example.com/page.html</loc>
     <xhtml:link rel="alternate" hreflang="en-gb" href="http://en-gb.example.com/page.html"/>
+    <xhtml:link rel="alternate" hreflang="en-us" href="http://en-us.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://en.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="http://www.example.com/"/>
@@ -47,6 +49,7 @@ Run `main.py`, optionally specifying an input and/or output file, for example:
     <loc>http://en.example.com/page.html</loc>
     <xhtml:link rel="alternate" hreflang="en-gb" href="http://en-gb.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="en-us" href="http://en-us.example.com/page.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://en.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="http://www.example.com/"/>
   </url>
@@ -55,7 +58,9 @@ Run `main.py`, optionally specifying an input and/or output file, for example:
     <xhtml:link rel="alternate" hreflang="en-gb" href="http://en-gb.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="en-us" href="http://en-us.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://en.example.com/page.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="http://de.example.com/page.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="http://www.example.com/"/>
   </url>
 </urlset>
+
 ```
