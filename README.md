@@ -71,4 +71,4 @@ Run `main.py`, optionally specifying an input and/or output file, for example:
 
 ```
 ## 🎉 Support
-<a href="https://www.buymeacoffee.com/kevduc"><img width="20" height="20" src="https://user-images.githubusercontent.com/64347790/193020287-f6bfa3a0-1c31-43e0-92f4-50235b9ff53b.png" title="buymeacoffee.com" /> Buy me a coffee</a>
+<a href="https://www.buymeacoffee.com/kevduc"><img width="20" height="20" src="https://user-images.githubusercontent.com/64347790/193020287-f6bfa3a0-1c31-43e0-92f4-50235b9ff53b.png" title="buymeacoffee.com" /> Buy me a hot chocolate</a>
