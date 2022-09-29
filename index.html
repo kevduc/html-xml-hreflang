@@ -99,27 +99,6 @@
         padding-bottom: 0.5rem;
       }
 
-      @media (max-height: 767px) {
-        body {
-          grid-template-rows: 85% auto;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .container {
-          grid-template-rows: 1fr auto 1fr;
-          grid-template-columns: 1fr;
-        }
-
-        .social {
-          padding: 0.6rem 0.5rem 0.5rem 0.5rem;
-        }
-
-        :root {
-          --gap: 1rem;
-        }
-      }
-
       .field {
         display: flex;
         flex-direction: column;
@@ -151,7 +130,7 @@
         font-size: 1.5rem;
         line-height: 2rem;
         width: 3rem;
-        background-color: #6b6b6b;
+        background-color: #555555;
         border: none;
         border-radius: 3px;
         padding: 0.2rem 0.5rem;
@@ -160,11 +139,7 @@
       }
 
       .button:hover:not(.disabled):not([disabled]) {
-        background-color: #8f8f8f;
-      }
-
-      .button:active:not(.disabled):not([disabled]) {
-        background-color: #6b6b6b;
+        background-color: gray;
       }
 
       .button.disabled,
@@ -237,6 +212,38 @@
 
       pre {
         margin: 0 !important;
+      }
+
+      @media (max-height: 768px) {
+        body {
+          grid-template-rows: 85% auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          grid-template-rows: 1fr auto 1fr;
+          grid-template-columns: 1fr;
+        }
+
+        .social {
+          padding: 0.6rem 0.5rem 0.5rem 0.5rem;
+        }
+
+        :root {
+          --gap: 1rem;
+        }
+
+        #convert::after {
+          display: inline-block;
+          transform: rotate(90deg);
+        }
+      }
+
+      @media (max-width: 425px) {
+        footer {
+          justify-content: space-evenly;
+        }
       }
     </style>
   </head>
