@@ -171,6 +171,7 @@
       .button[disabled] {
         cursor: default;
         color: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
       }
 
       #convert::after {
@@ -295,6 +296,12 @@ ${alternates}
         const convertButton = document.querySelector('#convert')
         convertButton.classList.add('loading')
 
+        const copyButton = document.querySelector('#copy')
+        copyButton.disabled = true
+
+        const saveButton = document.querySelector('#save')
+        saveButton.classList.add('disabled')
+
         const input = document.querySelector('#input')
         const inputText = input.value
 
@@ -304,12 +311,14 @@ ${alternates}
         setTimeout(() => {
           output.innerHTML = Prism.highlight(outputText, Prism.languages.xml, 'xml')
           convertButton.classList.remove('loading')
-          document.querySelector('#copy').disabled = false
+          copyButton.disabled = false
+
+          if (saveButton.href) URL.revokeObjectURL(saveButton.href)
+          saveButton.removeAttribute('href')
 
           const data = new Blob([output.innerText], { type: 'application/xml' })
           const url = URL.createObjectURL(data)
 
-          const saveButton = document.querySelector('#save')
           saveButton.href = url
           saveButton.classList.remove('disabled')
         }, 100)
