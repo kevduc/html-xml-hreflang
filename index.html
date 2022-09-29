@@ -277,7 +277,7 @@ ${alternates}
         setTimeout(() => {
           output.innerHTML = Prism.highlight(outputText, Prism.languages.xml, 'xml')
           convertButton.classList.remove('loading')
-        }, 0)
+        }, 100)
       }
 
       let copyTimeout = null
@@ -290,17 +290,19 @@ ${alternates}
         copyButton.classList.add('loading')
         let result = ''
 
-        navigator.clipboard
-          .writeText(output.innerText)
-          .then(() => (result = 'done'))
-          .catch(() => (result = 'fail'))
-          .finally(() => {
-            copyButton.classList.remove('loading')
-            copyButton.classList.add(result)
-            copyTimeout = setTimeout(() => {
-              copyButton.classList.remove(result)
-            }, 2000)
-          })
+        setTimeout(() => {
+          navigator.clipboard
+            .writeText(output.innerText)
+            .then(() => (result = 'done'))
+            .catch(() => (result = 'fail'))
+            .finally(() => {
+              copyButton.classList.remove('loading')
+              copyButton.classList.add(result)
+              copyTimeout = setTimeout(() => {
+                copyButton.classList.remove(result)
+              }, 2000)
+            })
+        }, 100)
       }
 
       const EXAMPLE_LINKS = `<link rel="alternate" hreflang="en-gb" href="http://en-gb.example.com/page.html" />
