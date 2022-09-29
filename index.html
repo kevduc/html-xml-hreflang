@@ -15,6 +15,7 @@
 
       :root {
         color-scheme: dark;
+        --gap: 2rem;
       }
 
       html,
@@ -28,6 +29,62 @@
         color: #eee;
 
         font-family: sans-serif;
+
+        display: grid;
+        grid-template-rows: 90% auto;
+      }
+
+      footer {
+        width: 100%;
+        display: grid;
+        justify-content: end;
+        align-items: flex-end;
+        grid-auto-flow: column;
+        gap: 1rem;
+
+        padding: 1rem var(--gap);
+        padding-top: 0.5rem;
+      }
+
+      a {
+        color: lightblue;
+        text-decoration: none;
+        padding: 0.8rem 1.25rem 0.75rem 1.25rem;
+        background-color: #3b3b3b;
+        border-radius: 5px;
+        height: fit-content;
+        line-height: 1.5rem;
+        text-align: center;
+      }
+
+      a:hover,
+      a:focus {
+        background-color: grey;
+      }
+
+      a,
+      a:visited {
+        color: inherit;
+      }
+
+      .github::before,
+      .buymeacoffee::before {
+        content: '';
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background-size: contain;
+        vertical-align: middle;
+        margin-right: 0.6rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .github::before {
+        background-image: url('https://github.githubassets.com/favicons/favicon-dark.png');
+      }
+
+      .buymeacoffee::before {
+        background-image: url('https://www.buymeacoffee.com/favicon.ico');
       }
 
       .container {
@@ -37,8 +94,30 @@
         justify-content: center;
         grid-template-columns: 1fr auto 1fr;
 
-        gap: 2rem;
-        padding: 2rem;
+        gap: var(--gap);
+        padding: var(--gap);
+        padding-bottom: 0.5rem;
+      }
+
+      @media (max-height: 767px) {
+        body {
+          grid-template-rows: 85% auto;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .container {
+          grid-template-rows: 1fr auto 1fr;
+          grid-template-columns: 1fr;
+        }
+
+        a {
+          padding: 0.6rem 0.5rem 0.5rem 0.5rem;
+        }
+
+        :root {
+          --gap: 1rem;
+        }
       }
 
       .field {
@@ -50,6 +129,7 @@
       label {
         margin-bottom: 0.5rem;
         font-size: larger;
+        line-height: 2.5rem;
       }
 
       textarea {
@@ -129,10 +209,14 @@
           transform: rotate(360deg);
         }
       }
+
+      pre {
+        margin: 0 !important;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <div class="field">
         <label for="input">HTML Links</label>
         <textarea class="content" id="input" spellcheck="false"></textarea>
@@ -144,7 +228,11 @@
         <label for="output">XML Sitemap <button title="Copy Sitemap code" id="copy" onclick="copy()"></button></label>
         <pre class="content"><code id="output" class="language-xml"></code></pre>
       </div>
-    </div>
+    </main>
+    <footer>
+      <a target="_blank" class="github" href="https://github.com/kevduc/html-xml-hreflang">View on GitHub</a>
+      <a target="_blank" class="buymeacoffee" href="https://www.buymeacoffee.com/kevduc">Buy me a hot chocolate</a>
+    </footer>
 
     <script src="https://unpkg.com/prismjs@1.29.0/components/prism-core.min.js"></script>
     <script src="https://unpkg.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
