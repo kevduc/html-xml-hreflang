@@ -6,6 +6,12 @@ Follows the Google Guidelines: [Tell Google about localized versions of your pag
 
 ## 📘 How to use
 
+### 🌐 Online version
+
+https://kevduc.github.io/html-xml-hreflang/
+
+### 🐍 Python script
+
 Run `main.py`, optionally specifying an input and/or output file, for example:
 
 \> `python main.py -i test/test-input.html -o test/test-output.xml`
